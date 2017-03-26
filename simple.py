@@ -31,4 +31,22 @@ for img_path in enumerate(training_list):  # file path list
 writer.close()
 
 #read_records:
+files = tf.train.match_filenames_once('./data/flower_photos/train.tfrecords')
+filename_queue = tf.train.string_input_producer(files, shuffle=False)
+reader = tf.TFRecordReader()
+_,serialized_example = reader.read(filename_queue)
+features = tf.parse_single_example(
+            serialized_example,
+            features={
+                'image_raw':tf.FixedLenFeature([], tf.string),
+                'label':tf.FixedLenFeature([], tf.int64)
+                })
+decoded_images = tf.decode_raw(features['image_raw'], tf.uint8)
+print(decoded_images.shape)
+retyped_images = tf.cast(decoded_images, tf.float32)
+labels = tf.cast(features['label'], tf.int32)
+images = tf.reshape(retyped_images, [224 * 224 * 3])
 
+print(retyped_images.shape)
+print(type(images))
+print(images.shape)
