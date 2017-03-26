@@ -1,7 +1,5 @@
 # Tfrecods-simple-example
- This repo is a simple Tfrecodes usage. I meet some difficuties when using tfrecods, I am happy if this repo is helpful for you.
- 
- including:
+ This repo is a simple Tfrecodes usage. I meet some difficuties when using tfrecods and I am happy if this repo is helpful for you.
  
    generate.py generates the tfrecords.
    
