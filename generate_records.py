@@ -110,7 +110,7 @@ def image2tfrecord(sess, image_lists, label_names):
 		example = tf.train.Example(features=tf.train.Features(feature={
 			'image_raw': _bytes_features(image_raw),
 			'label': _int64_features(training_label[index]),
-			'pixels': _int64_features(240*320*3),
+			'pixels': _int64_features(224*224*3),
 		}))
 		writer.write(example.SerializeToString())
 		print("...file: %s" % (path))
