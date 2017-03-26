@@ -101,7 +101,7 @@ def image2tfrecord(sess, image_lists, label_names):
 		return rgb_image
 
 	## store training set
-	training_filename = os.path.join(INPUT_DATA, 'train6.tfrecords')
+	training_filename = os.path.join(INPUT_DATA, 'train.tfrecords')
 	writer = tf.python_io.TFRecordWriter(training_filename)
 	for index,img in enumerate(training_list):
 		path = os.path.join(INPUT_DATA,training_list[index])
