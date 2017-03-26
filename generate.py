@@ -6,7 +6,7 @@ import tensorflow as tf
 from PIL import Image
 import cv2
 
-INPUT_DATA = './data/flower_photos/roses'
+INPUT_DATA = './data/flower_photos'
 
 TESTING_PERCENTAGE = 10
 VALIDATION_PERCENTAGE = 10
@@ -18,7 +18,7 @@ def create_image_lists(testing_percentage, validation_percentage):
 	images_lists = {}
 	label_names = []
 	sub_dirs = [x[0] for x in os.walk(INPUT_DATA)]
-	is_root_dir = False
+	is_root_dir = True
 	for sub_dir in sub_dirs:
 		if is_root_dir:
 			is_root_dir = False
