@@ -6,11 +6,9 @@ gpuconfig = tf.ConfigProto(
 
 os.environ['CUDA_VISIBLE_DEVICES'] = '1'
 
-
-
 with tf.Graph().as_default(), tf.Session(config=gpuconfig) as sess:
     #files = tf.train.match_filenames_once('../practice/mnist/data/output.tfrecords')
-    files = tf.train.match_filenames_once('./data/flower_photos/train6.tfrecords')
+    files = tf.train.match_filenames_once('./data/flower_photos/train.tfrecords')
     filename_queue = tf.train.string_input_producer(files, shuffle=False)
     reader = tf.TFRecordReader()
     _,serialized_example = reader.read(filename_queue)
